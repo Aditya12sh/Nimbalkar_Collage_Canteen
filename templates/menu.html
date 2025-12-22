@@ -3,85 +3,710 @@
 {% block title %}Menu | Nimbalkar Canteen{% endblock %}
 
 {% block content %}
-<section class="section-padding bg-light">
-  <div class="container">
-    <h2 class="text-center mb-5 fw-bold display-4 text-dark">Our Menu</h2>
-    <div class="row g-4 justify-content-center">
-      
-      <!-- Cold Coffee -->
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="card rounded-3 border-0 h-100 card-shadow-hover">
-          <div class="card-img-container">
-            <img src="{% static 'images/cold coffee.png' %}" class="card-img-top rounded-top-3" alt="Cold Coffee">
-          </div>
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title fw-bold">Cold Coffee</h5>
-            <p class="card-text text-muted mb-3 small">Rich, creamy, chilled coffee blend.</p>
-            <span class="fw-bold text-success mt-auto mb-2">₹45.00</span>
-            <button onclick="addToCart('Cold Coffee',45)" class="btn btn-custom-primary btn-sm">Add to Cart</button>
-          </div>
-        </div>
-      </div>
+ <main class="container py-5">
+    <header class="text-center mb-5">
+        <h1 class="display-3 fw-bolder text-white mb-3">Full Menu Selection</h1>
+        <p class="lead text-light">Explore our wide variety of campus favorites, freshly prepared every day.</p>
+    </header>
 
-      <!-- Masala Chai -->
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="card rounded-3 border-0 h-100 card-shadow-hover">
-          <div class="card-img-container">
-            <img src="{% static 'images/chai.webp' %}" class="card-img-top rounded-top-3" alt="Masala Chai">
-          </div>
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title fw-bold">Masala Chai</h5>
-            <p class="card-text text-muted mb-3 small">Hot spiced tea, a perfect morning or evening energizer.</p>
-            <span class="fw-bold text-success mt-auto mb-2">₹20.00</span>
-            <button onclick="addToCart('Masala Chai',20)" class="btn btn-custom-primary btn-sm">Add to Cart</button>
-          </div>
-        </div>
-      </div>
 
-      <!-- Masala Dosa -->
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="card rounded-3 border-0 h-100 card-shadow-hover">
-          <div class="card-img-container">
-            <img src="{% static 'images/dosaa.jpg' %}" class="card-img-top rounded-top-3" alt="Masala Dosa">
-          </div>
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title fw-bold">Masala Dosa</h5>
-            <p class="card-text text-muted mb-3 small">Crispy rice crepe with spiced potato filling. Served with sambar and chutneys.</p>
-            <span class="fw-bold text-success mt-auto mb-2">₹50.00</span>
-            <button onclick="addToCart('Masala Dosa',50)" class="btn btn-custom-primary btn-sm">Add to Cart</button>
-          </div>
-        </div>
-      </div>
-
+    <section id="staples" class="menu-section p-4 shadow-lg">
+    <h2 class="category-heading display-5 fw-bold">
+        <i class="bi bi-egg-fried me-2"></i> Breakfast & Quick Bites
+    </h2>
+    
+  
       <!-- Add remaining items using same structure -->
       {% comment %} Loop over remaining images dynamically if needed {% endcomment %}
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="card rounded-3 border-0 h-100 card-shadow-hover">
-          <div class="card-img-container">
-            <img src="{% static 'images/amulpavbhaji.png' %}" class="card-img-top rounded-top-3" alt="Amul Pav Bhaji">
-          </div>
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title fw-bold">Amul Pav Bhaji</h5>
-            <p class="card-text text-muted mb-3 small">Delicious Pav Bhaji with Amul butter topping.</p>
-            <span class="fw-bold text-success mt-auto mb-2">₹60.00</span>
-            <button onclick="addToCart('Amul Pav Bhaji',60)" class="btn btn-custom-primary btn-sm">Add to Cart</button>
-          </div>
-        </div>
-      </div>
+     <div class="row g-4">
 
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="card rounded-3 border-0 h-100 card-shadow-hover">
-          <div class="card-img-container">
-            <img src="{% static 'images/Anda Biryani.webp' %}" class="card-img-top rounded-top-3" alt="Anda Biryani">
-          </div>
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title fw-bold">Anda Biryani</h5>
-            <p class="card-text text-muted mb-3 small">Spicy egg biryani, aromatic and flavorful.</p>
-            <span class="fw-bold text-success mt-auto mb-2">₹90.00</span>
-            <button onclick="addToCart('Anda Biryani',90)" class="btn btn-custom-primary btn-sm">Add to Cart</button>
-          </div>
+  <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+    <div class="card rounded-3 border-0 h-100 card-shadow-hover">
+        <div class="card-img-container">
+            <img src="{% static 'images/ppoha.jpg' %}" class="card-img-top rounded-top-3" alt="Poha">
         </div>
+        <div class="card-body d-flex flex-column">
+            <h5 class="card-title fw-bold">Poha</h5>
+            <p class="card-text text-muted mb-3 small">
+                Fresh and light Poha cooked with onions, mustard seeds, curry leaves, and peanuts.
+            </p>
+            <span class="fw-bold text-success mt-auto mb-2">₹30.00</span>
+            <button onclick="addToCart('Poha',30)" class="btn btn-custom-primary btn-sm">
+                Add to Cart
+            </button>
+        </div>
+    </div>
+</div>
+
+
+  <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+  <div class="card rounded-3 border-0 h-100 card-shadow-hover">
+    <div class="card-img-container">
+      <img src="{% static 'images/upma.png' %}" class="card-img-top rounded-top-3" alt="Upma">
+    </div>
+    <div class="card-body d-flex flex-column">
+      <h5 class="card-title fw-bold">Upma</h5>
+      <p class="card-text text-muted mb-3 small">
+        Soft and savory semolina upma cooked with vegetables and mild spices.
+      </p>
+      <span class="fw-bold text-success mt-auto mb-2">₹40.00</span>
+      <button onclick="addToCart('Upma', 40)" class="btn btn-custom-primary btn-sm">
+        Add to Cart
+      </button>
+    </div>
+  </div>
+</div>
+
+
+  <div class="col-12 col-sm-6 col-lg-3">
+    <div class="card rounded-3 border-0 h-100 card-shadow-hover">
+      <div class="card-img-container">
+        <img src="{% static 'images/idlli_vada.avif' %}" class="card-img-top rounded-top-3" alt="Idli Vada Combo">
       </div>
+      <div class="card-body d-flex flex-column">
+        <h5 class="card-title fw-bold">Idli Vada Combo</h5>
+        <p class="card-text text-muted mb-3 small">Soft steamed rice cakes and savory lentil fritters.</p>
+        <span class="fw-bold text-success mt-auto mb-2">₹40.00</span>
+        <button onclick="addToCart('Idli Vada Combo',40)" class="btn btn-custom-primary btn-sm">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 col-sm-6 col-lg-3">
+    <div class="card rounded-3 border-0 h-100 card-shadow-hover">
+      <div class="card-img-container">
+        <img src="{% static 'images/misalpav.png' %}" class="card-img-top rounded-top-3" alt="Misal Pav">
+      </div>
+      <div class="card-body d-flex flex-column">
+        <h5 class="card-title fw-bold">Misal Pav <span class="badge bg-warning text-dark">NEW</span></h5>
+        <p class="card-text text-muted mb-3 small">Spicy sprouted bean curry served with pav.</p>
+        <span class="fw-bold text-success mt-auto mb-2">₹70.00</span>
+        <button onclick="addToCart('Misal Pav',70)" class="btn btn-custom-primary btn-sm">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 col-sm-6 col-lg-3">
+    <div class="card rounded-3 border-0 h-100 card-shadow-hover">
+      <div class="card-img-container">
+        <img src="{% static 'images/meduvada.png' %}" class="card-img-top rounded-top-3" alt="Medu Wada Sambhar">
+      </div>
+      <div class="card-body d-flex flex-column">
+        <h5 class="card-title fw-bold">Medu Wada Sambhar</h5>
+        <p class="card-text text-muted mb-3 small">Fluffy fritters submerged in tangy sambar.</p>
+        <span class="fw-bold text-success mt-auto mb-2">₹50.00</span>
+        <button onclick="addToCart('Medu Wada Sambhar',50)" class="btn btn-custom-primary btn-sm">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 col-sm-6 col-lg-3">
+    <div class="card rounded-3 border-0 h-100 card-shadow-hover">
+      <div class="card-img-container">
+        <img src="{% static 'images/samosa.png' %}" class="card-img-top rounded-top-3" alt="Samosa">
+      </div>
+      <div class="card-body d-flex flex-column">
+        <h5 class="card-title fw-bold">Samosa</h5>
+        <p class="card-text text-muted mb-3 small">Deep-fried pastry with savory spiced potatoes.</p>
+        <span class="fw-bold text-success mt-auto mb-2">₹30.00</span>
+        <button onclick="addToCart('Samosa',30)" class="btn btn-custom-primary btn-sm">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 col-sm-6 col-lg-3">
+    <div class="card rounded-3 border-0 h-100 card-shadow-hover">
+      <div class="card-img-container">
+        <img src="{% static 'images/vadapav.png' %}" class="card-img-top rounded-top-3" alt="Vada Pav">
+      </div>
+      <div class="card-body d-flex flex-column">
+        <h5 class="card-title fw-bold">Vada Pav</h5>
+        <p class="card-text text-muted mb-3 small">Spiced potato fritter inside a soft bread bun.</p>
+        <span class="fw-bold text-success mt-auto mb-2">₹20.00</span>
+        <button onclick="addToCart('Vada Pav',20)" class="btn btn-custom-primary btn-sm">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 col-sm-6 col-lg-3">
+    <div class="card rounded-3 border-0 h-100 card-shadow-hover">
+      <div class="card-img-container">
+        <img src="{% static 'images/sandwich.jpg' %}" class="card-img-top rounded-top-3" alt="Veg Sandwich">
+      </div>
+      <div class="card-body d-flex flex-column">
+        <h5 class="card-title fw-bold">Veg Sandwich</h5>
+        <p class="card-text text-muted mb-3 small">Freshly grilled with crisp vegetables.</p>
+        <span class="fw-bold text-success mt-auto mb-2">₹55.00</span>
+        <button onclick="addToCart('Veg Sandwich',55)" class="btn btn-custom-primary btn-sm">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<section id="meals" class="menu-section p-4 shadow-lg">
+    <h2 class="category-heading display-5 fw-bold">
+        <i class="bi bi-box-seam-fill me-2"></i> Meals & Thalis
+    </h2>
+
+    <div class="row g-4">
+
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card rounded-3 border-0 h-100 card-shadow-hover">
+                <div class="card-img-container">
+                    <img src="{% static 'images/thali.webp' %}" 
+                         class="card-img-top rounded-top-3" 
+                         alt="Mini Thali">
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title h5 fw-bold">Student Mini Thali</h5>
+                    <p class="card-text text-muted mb-3 small">
+                        Roti (2), Sabzi, Dal, Rice, Salad. Quick and filling.
+                    </p>
+                    <span class="fw-bold text-success mt-auto mb-2">₹80.00</span>
+                    <button onclick="addToCart('Student Mini Thali', 80)"
+                        class="btn btn-custom-primary btn-sm">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card rounded-3 border-0 h-100 card-shadow-hover">
+                <div class="card-img-container">
+                    <img src="{% static 'images/rajma chawal.webp' %}" 
+                         class="card-img-top rounded-top-3" 
+                         alt="Rajma Chawal">
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title h5 fw-bold">Rajma Chawal</h5>
+                    <p class="card-text text-muted mb-3 small">
+                        A Punjabi classic: Kidney beans curry served with steamed rice.
+                    </p>
+                    <span class="fw-bold text-success mt-auto mb-2">₹70.00</span>
+                    <button onclick="addToCart('Rajma Chawal', 70)"
+                        class="btn btn-custom-primary btn-sm">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+
+       <section id="beverages" class="menu-section p-4 shadow-lg">
+    <h2 class="category-heading display-5 fw-bold">
+        <i class="bi bi-cup-hot-fill me-2"></i> Hot & Cold
+    </h2>
+
+    <div class="row g-4">
+
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card rounded-3 border-0 h-100 card-shadow-hover">
+                <div class="card-img-container">
+                    <img src="{% static 'images/cold coffee.png' %}"
+                         class="card-img-top rounded-top-3"
+                         alt="Iced Cold Coffee">
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title h5 fw-bold">Cold Coffee</h5>
+                    <p class="card-text text-muted mb-3 small">
+                        Rich, creamy, and perfectly chilled coffee blend for a quick boost.
+                    </p>
+                    <span class="fw-bold text-success mt-auto mb-2">₹45.00</span>
+                    <button onclick="addToCart('Cold Coffee', 45)"
+                        class="btn btn-custom-primary btn-sm">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card rounded-3 border-0 h-100 card-shadow-hover">
+                <div class="card-img-container">
+                    <img src="{% static 'images/chai.webp' %}"
+                         class="card-img-top rounded-top-3"
+                         alt="Hot Tea">
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title h5 fw-bold">Masala Chai</h5>
+                    <p class="card-text text-muted mb-3 small">
+                        Hot spiced tea, a perfect morning or evening energizer.
+                    </p>
+                    <span class="fw-bold text-success mt-auto mb-2">₹20.00</span>
+                    <button onclick="addToCart('Masala Chai', 20)"
+                        class="btn btn-custom-primary btn-sm">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card rounded-3 border-0 h-100 card-shadow-hover">
+                <div class="card-img-container">
+                    <img src="{% static 'images/blacktea.png' %}"
+                         class="card-img-top rounded-top-3"
+                         alt="Black Tea or Coffee">
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title h5 fw-bold">Black Coffee</h5>
+                    <p class="card-text text-muted mb-3 small">
+                        A strong, unadulterated shot for coffee lovers.
+                    </p>
+                    <span class="fw-bold text-success mt-auto mb-2">₹30.00</span>
+                    <button onclick="addToCart('Black Coffee', 30)"
+                        class="btn btn-custom-primary btn-sm">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card rounded-3 border-0 h-100 card-shadow-hover">
+                <div class="card-img-container">
+                    <img src="{% static 'images/milk.png' %}"
+                         class="card-img-top rounded-top-3"
+                         alt="Hot or Cold Milk">
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title h5 fw-bold">Milk </h5>
+                    <p class="card-text text-muted mb-3 small">
+                        Fresh, plain milk .
+                    </p>
+                    <span class="fw-bold text-success mt-auto mb-2">₹30.00</span>
+                    <button onclick="addToCart('Milk Hot/Cold', 30)"
+                        class="btn btn-custom-primary btn-sm">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+        <section id="chinese-corner" class="menu-section p-4 shadow-lg">
+    <h2 class="category-heading display-5 fw-bold">
+        <i class="bi bi-cup-chopsticks-fill me-2"></i> Chinese Corner
+    </h2>
+
+    <div class="row g-4">
+
+<!-- Veg Fried Noodles -->
+<div class="col-12 col-sm-6 col-lg-3">
+    <div class="card rounded-3 border-0 h-100 card-shadow-hover overflow-hidden">
+
+        <!-- IMAGE PART -->
+        <div class="card-img-container">
+            <img src="{% static 'images/Veg. Fried Noodles.jpg' %}"
+                 class="card-img-top"
+                 alt="Veg Fried Noodles">
+        </div>
+
+        <!-- TEXT PART -->
+        <div class="card-body d-flex flex-column">
+            <h5 class="card-title fw-bold">Veg Fried Noodles</h5>
+
+            <p class="card-text text-muted small">
+                Stir-fried vegetables tossed with your choice of rice or noodles.
+            </p>
+
+            <div class="d-flex justify-content-between mt-auto mb-2">
+                <span class="fw-bold text-secondary small">Half: ₹60</span>
+                <span class="fw-bold text-success">Full: ₹90</span>
+            </div>
+
+            <button onclick="addToCart('Veg Fried Noodles Half',60)"
+                    class="btn btn-outline-primary btn-sm mb-2">
+                Add Half
+            </button>
+            <button onclick="addToCart('Veg Fried Noodles Full',90)"
+                    class="btn btn-custom-primary btn-sm">
+                Add Full
+            </button>
+        </div>
+
+    </div>
+</div>
+
+        <!-- Veg Schezwan Noodles -->
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card rounded-3 border-0 h-100 card-shadow-hover">
+                <div class="card-img-container">
+                    <img src="{% static 'images/Veg. Schezwan Ri.webp' %}" class="card-img-top rounded-top-3" alt="Veg Schezwan">
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title fw-bold">Veg Schezwan Noodles</h5>
+                    <p class="card-text text-muted small">
+                        Rice or noodles tossed in a spicy Schezwan sauce.
+                    </p>
+                    <div class="d-flex justify-content-between mt-auto mb-2">
+                        <span class="fw-bold text-secondary small">Half: ₹60</span>
+                        <span class="fw-bold text-success">Full: ₹90</span>
+                    </div>
+                    <button onclick="addToCart('Veg Schezwan Noodles Half',60)" class="btn btn-outline-primary btn-sm mb-2">Add Half</button>
+                    <button onclick="addToCart('Veg Schezwan Noodles Full',90)" class="btn btn-custom-primary btn-sm">Add Full</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Veg Triple Rice -->
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card rounded-3 border-0 h-100 card-shadow-hover">
+                <div class="card-img-container">
+                    <img src="{% static 'images/Veg. Tripple Rice.webp' %}" class="card-img-top rounded-top-3" alt="Veg Triple Rice">
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title fw-bold">Veg Triple Rice</h5>
+                    <p class="card-text text-muted small">
+                        Three rice & noodle preparations served with gravy.
+                    </p>
+                    <div class="d-flex justify-content-between mt-auto mb-2">
+                        <span class="fw-bold text-secondary small">Half: ₹60</span>
+                        <span class="fw-bold text-success">Full: ₹90</span>
+                    </div>
+                    <button onclick="addToCart('Veg Triple Rice Half',60)" class="btn btn-outline-primary btn-sm mb-2">Add Half</button>
+                    <button onclick="addToCart('Veg Triple Rice Full',90)" class="btn btn-custom-primary btn-sm">Add Full</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Anda Fried Rice -->
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card rounded-3 border-0 h-100 card-shadow-hover">
+                <div class="card-img-container">
+                    <img src="{% static 'images/Anda Fried Rice.webp' %}" class="card-img-top rounded-top-3" alt="Anda Fried Rice">
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title fw-bold">Anda Fried Rice</h5>
+                    <p class="card-text text-muted small">
+                        Scrambled egg and veggies tossed with rice or noodles.
+                    </p>
+                    <div class="d-flex justify-content-between mt-auto mb-2">
+                        <span class="fw-bold text-secondary small">Half: ₹90</span>
+                        <span class="fw-bold text-success">Full: ₹110</span>
+                    </div>
+                    <button onclick="addToCart('Anda Fried Rice Half',90)" class="btn btn-outline-primary btn-sm mb-2">Add Half</button>
+                    <button onclick="addToCart('Anda Fried Rice Full',110)" class="btn btn-custom-primary btn-sm">Add Full</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chicken Fried Noodles -->
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card rounded-3 border-0 h-100 card-shadow-hover">
+                <div class="card-img-container">
+                    <img src="{% static 'images/Chicken Fried Rice.webp' %}" class="card-img-top rounded-top-3" alt="Chicken Fried">
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title fw-bold">Chicken Fried Rice</h5>
+                    <p class="card-text text-muted small">
+                        Chicken and vegetables stir-fried to perfection.
+                    </p>
+                    <div class="d-flex justify-content-between mt-auto mb-2">
+                        <span class="fw-bold text-secondary small">Half: ₹100</span>
+                        <span class="fw-bold text-success">Full: ₹120</span>
+                    </div>
+                    <button onclick="addToCart('Chicken Fried Noodles Half',100)" class="btn btn-outline-primary btn-sm mb-2">Add Half</button>
+                    <button onclick="addToCart('Chicken Fried Noodles Full',120)" class="btn btn-custom-primary btn-sm">Add Full</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Paneer Fried Rice -->
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card rounded-3 border-0 h-100 card-shadow-hover">
+                <div class="card-img-container">
+                    <img src="{% static 'images/Paneer Fried Rice.webp' %}" class="card-img-top rounded-top-3" alt="Paneer Fried Rice">
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title fw-bold">Paneer Fried Rice</h5>
+                    <p class="card-text text-muted small">
+                        Soft paneer cubes with vegetables and rice/noodles.
+                    </p>
+                    <div class="d-flex justify-content-between mt-auto mb-2">
+                        <span class="fw-bold text-secondary small">Half: ₹100</span>
+                        <span class="fw-bold text-success">Full: ₹120</span>
+                    </div>
+                    <button onclick="addToCart('Paneer Fried Rice Half',100)" class="btn btn-outline-primary btn-sm mb-2">Add Half</button>
+                    <button onclick="addToCart('Paneer Fried Rice Full',120)" class="btn btn-custom-primary btn-sm">Add Full</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+      <section id="special-rice" class="menu-section p-4 shadow-lg">
+    <h2 class="category-heading display-5 fw-bold">
+        <i class="bi bi-rice-hot-fill me-2"></i> Special Rice
+    </h2>
+
+    <div class="row g-4">
+
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card rounded-3 border-0 h-100 card-shadow-hover">
+                <div class="card-img-container">
+                    <img src="{% static 'images/Veg Pulao.webp' %}" class="card-img-top rounded-top-3" alt="Veg Pulao">
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title fw-bold">Veg Pulao</h5>
+                    <p class="card-text text-muted small">
+                        Aromatic basmati rice cooked with mixed vegetables and whole spices.
+                    </p>
+                    <span class="fw-bold text-success mt-auto mb-2">₹90.00</span>
+                    <button onclick="addToCart('Veg Pulao', 90)" class="btn btn-custom-primary btn-sm">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card rounded-3 border-0 h-100 card-shadow-hover">
+                <div class="card-img-container">
+                    <img src="{% static 'images/VegBiryani.webp' %}" class="card-img-top rounded-top-3" alt="Veg Biryani">
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title fw-bold">Veg Biryani</h5>
+                    <p class="card-text text-muted small">
+                        Layered basmati rice and vegetables cooked in a fragrant marinade.
+                    </p>
+                    <span class="fw-bold text-success mt-auto mb-2">₹90.00</span>
+                    <button onclick="addToCart('Veg Biryani', 90)" class="btn btn-custom-primary btn-sm">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card rounded-3 border-0 h-100 card-shadow-hover">
+                <div class="card-img-container">
+                    <img src="{% static 'images/Dal khichdi.webp' %}" class="card-img-top rounded-top-3" alt="Dal Khichdi">
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title fw-bold">Dal Khichdi</h5>
+                    <p class="card-text text-muted small">
+                        Comfort food made with rice and lentils, served with ghee.
+                    </p>
+                    <span class="fw-bold text-success mt-auto mb-2">₹80.00</span>
+                    <button onclick="addToCart('Dal Khichdi', 80)" class="btn btn-custom-primary btn-sm">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card rounded-3 border-0 h-100 card-shadow-hover">
+                <div class="card-img-container">
+                    <img src="{% static 'images/Jeera Rice.webp' %}" class="card-img-top rounded-top-3" alt="Jeera Rice">
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title fw-bold">Jeera Rice</h5>
+                    <p class="card-text text-muted small">
+                        Fluffy basmati rice tempered with cumin seeds.
+                    </p>
+                    <span class="fw-bold text-success mt-auto mb-2">₹60.00</span>
+                    <button onclick="addToCart('Jeera Rice', 60)" class="btn btn-custom-primary btn-sm">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card rounded-3 border-0 h-100 card-shadow-hover">
+                <div class="card-img-container">
+                    <img src="{% static 'images/Chicken Biryani.webp' %}" class="card-img-top rounded-top-3" alt="Chicken Biryani">
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title fw-bold">Chicken Biryani</h5>
+                    <p class="card-text text-muted small">
+                        Fragrant basmati rice layered with marinated chicken.
+                    </p>
+                    <span class="fw-bold text-success mt-auto mb-2">₹120.00</span>
+                    <button onclick="addToCart('Chicken Biryani', 120)" class="btn btn-custom-primary btn-sm">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card rounded-3 border-0 h-100 card-shadow-hover">
+                <div class="card-img-container">
+                    <img src="{% static 'images/Anda Biryani.webp' %}" class="card-img-top rounded-top-3" alt="Anda Biryani">
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title fw-bold">Anda Biryani</h5>
+                    <p class="card-text text-muted small">
+                        Spicy rice with boiled eggs and aromatic spices.
+                    </p>
+                    <span class="fw-bold text-success mt-auto mb-2">₹100.00</span>
+                    <button onclick="addToCart('Anda Biryani', 100)" class="btn btn-custom-primary btn-sm">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card rounded-3 border-0 h-100 card-shadow-hover">
+                <div class="card-img-container">
+                    <img src="{% static 'images/Steam Rice.webp' %}" class="card-img-top rounded-top-3" alt="Steam Rice">
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title fw-bold">Steam Rice</h5>
+                    <p class="card-text text-muted small">
+                        Plain steamed basmati rice, perfect with curries.
+                    </p>
+                    <span class="fw-bold text-success mt-auto mb-2">₹50.00</span>
+                    <button onclick="addToCart('Steam Rice', 50)" class="btn btn-custom-primary btn-sm">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+      <section id="special-menu" class="menu-section p-4 shadow-lg">
+    <h2 class="category-heading display-5 fw-bold">
+        <i class="bi bi-fire me-2"></i> Special Menu
+    </h2>
+
+    <div class="row g-4">
+
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card rounded-3 border-0 h-100 card-shadow-hover">
+                <div class="card-img-container">
+                    <img src="{% static 'images/amulpavbhaji.png' %}" class="card-img-top rounded-top-3" alt="Amul Pav Bhaji">
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title fw-bold">Amul Pav Bhaji</h5>
+                    <p class="card-text text-muted small">
+                        Rich, spicy mashed vegetable curry cooked in Amul butter, served without pav.
+                    </p>
+                    <span class="fw-bold text-success mt-auto mb-2">₹60.00</span>
+                    <button onclick="addToCart('Amul Pav Bhaji', 60)" class="btn btn-custom-primary btn-sm">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card rounded-3 border-0 h-100 card-shadow-hover">
+                <div class="card-img-container">
+                    <img src="{% static 'images/pavjodi.jpg' %}" class="card-img-top rounded-top-3" alt="Butter Pav Jodi">
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title fw-bold">Butter Pav Jodi</h5>
+                    <p class="card-text text-muted small">
+                        A pair of soft pav toasted golden with generous Amul butter.
+                    </p>
+                    <span class="fw-bold text-success mt-auto mb-2">₹15.00</span>
+                    <button onclick="addToCart('Butter Pav Jodi', 15)" class="btn btn-custom-primary btn-sm">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card rounded-3 border-0 h-100 card-shadow-hover">
+                <div class="card-img-container">
+                    <img src="{% static 'images/Omelette Pav.webp' %}" class="card-img-top rounded-top-3" alt="Omelette Pav">
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title fw-bold">Omelette Pav</h5>
+                    <p class="card-text text-muted small">
+                        Spiced omelette served inside a butter-toasted pav.
+                    </p>
+                    <span class="fw-bold text-success mt-auto mb-2">₹50.00</span>
+                    <button onclick="addToCart('Omelette Pav', 50)" class="btn btn-custom-primary btn-sm">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card rounded-3 border-0 h-100 card-shadow-hover">
+                <div class="card-img-container">
+                    <img src="{% static 'images/bhurjipav.webp' %}" class="card-img-top rounded-top-3" alt="Bhurji Pav">
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title fw-bold">Bhurji Pav (Anda)</h5>
+                    <p class="card-text text-muted small">
+                        Scrambled anda or paneer cooked with spices, served with pav.
+                    </p>
+                    <span class="fw-bold text-success mt-auto mb-2">₹60.00</span>
+                    <button onclick="addToCart('Bhurji Pav', 60)" class="btn btn-custom-primary btn-sm">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card rounded-3 border-0 h-100 card-shadow-hover">
+                <div class="card-img-container">
+                    <img src="{% static 'images/bhujichapati.webp' %}" class="card-img-top rounded-top-3" alt="Bhurji Chapati">
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title fw-bold">Bhurji Chapati</h5>
+                    <p class="card-text text-muted small">
+                        Anda or paneer bhurji served with two warm chapatis.
+                    </p>
+                    <span class="fw-bold text-success mt-auto mb-2">₹60.00</span>
+                    <button onclick="addToCart('Bhurji Chapati', 60)" class="btn btn-custom-primary btn-sm">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card rounded-3 border-0 h-100 card-shadow-hover">
+                <div class="card-img-container">
+                    <img src="{% static 'images/andaboilplate.webp' %}" class="card-img-top rounded-top-3" alt="Anda Boil Plate">
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title fw-bold">Anda Boil Plate</h5>
+                    <p class="card-text text-muted small">
+                        Two boiled eggs seasoned with salt and chat masala.
+                    </p>
+                    <span class="fw-bold text-success mt-auto mb-2">₹40.00</span>
+                    <button onclick="addToCart('Anda Boil Plate', 40)" class="btn btn-custom-primary btn-sm">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card rounded-3 border-0 h-100 card-shadow-hover">
+                <div class="card-img-container">
+                    <img src="{% static 'images/vegmaggie.webp' %}" class="card-img-top rounded-top-3" alt="Veg Maggi">
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title fw-bold">Veg Maggi</h5>
+                    <p class="card-text text-muted small">
+                        Classic Maggi cooked with butter and vegetables.
+                    </p>
+                    <span class="fw-bold text-success mt-auto mb-2">₹50.00</span>
+                    <button onclick="addToCart('Veg Maggi', 50)" class="btn btn-custom-primary btn-sm">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card rounded-3 border-0 h-100 card-shadow-hover">
+                <div class="card-img-container">
+                    <img src="{% static 'images/andamaggie.webp' %}" class="card-img-top rounded-top-3" alt="Anda Maggi">
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title fw-bold">Anda Maggi</h5>
+                    <p class="card-text text-muted small">
+                        Maggi noodles mixed with scrambled egg (anda bhurji style).
+                    </p>
+                    <span class="fw-bold text-success mt-auto mb-2">₹60.00</span>
+                    <button onclick="addToCart('Anda Maggi', 60)" class="btn btn-custom-primary btn-sm">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+    
 
       <!-- Repeat for all other images like Anda Fried Rice, Anda Schezwan Rice, Anda Tripple Rice, etc. -->
       <!-- Just follow the same structure as above, changing src, alt, title, description and price -->
@@ -93,12 +718,36 @@
 
 {% block scripts %}
 <script>
-function addToCart(name, price){
-    let cart = JSON.parse(localStorage.getItem('canteenCart'))||[];
-    let existing = cart.find(i=>i.name===name);
-    if(existing) existing.qty+=1; else cart.push({name:name,price:price,qty:1});
+// Initialize cart count on page load
+document.addEventListener('DOMContentLoaded', () => {
+    updateCartCount();
+});
+
+function addToCart(name, price) {
+    let cart = JSON.parse(localStorage.getItem('canteenCart')) || [];
+    let existing = cart.find(item => item.name === name);
+
+    if (existing) {
+        existing.qty += 1;
+    } else {
+        cart.push({ name: name, price: price, qty: 1 });
+    }
+
     localStorage.setItem('canteenCart', JSON.stringify(cart));
+    updateCartCount();
     alert(name + " added to cart!");
+}
+
+// Update the cart count badge
+function updateCartCount() {
+    let cart = JSON.parse(localStorage.getItem('canteenCart')) || [];
+    let totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+
+    const cartCount = document.getElementById('cart-count');
+    if (cartCount) {
+        cartCount.textContent = totalQty;
+    }
 }
 </script>
 {% endblock %}
+

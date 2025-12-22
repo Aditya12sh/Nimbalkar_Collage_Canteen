@@ -1,20 +1,148 @@
-
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}About | Nimbalkar Canteen{% endblock %}
 
 {% block content %}
-<section class="section-padding bg-light">
-  <div class="container">
-    <h2 class="text-center mb-5 fw-bold display-4 text-dark">About Nimbalkar Canteen</h2>
-    <div class="row g-4 justify-content-center">
-      <div class="col-md-8">
-        <div class="p-4 bg-white shadow rounded-3">
-          <p class="text-dark">Nimbalkar Canteen is a college-friendly food outlet offering delicious, affordable meals. We pride ourselves on fresh ingredients, hygienic preparation, and quick service. Our menu ranges from local favorites to beverages and snacks, perfect for students and faculty alike.</p>
-          <p class="text-dark">Our mission is to provide a delightful dining experience while maintaining eco-conscious practices and supporting local suppliers.</p>
+
+<style>
+/* Hero Section with Background Image */
+.about-hero {
+    min-height: 100vh;
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.6),
+        rgba(0, 0, 0, 0.6)
+    ),
+    url("{% static 'images/image_d52879.jpg' %}");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+}
+
+/* Enhanced Glass Card for Readability */
+.glass-card {
+    background: rgba(255, 255, 255, 0.92); /* Increased opacity for text clarity */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 2.5rem;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+/* Feature Cards Specific Styling */
+.feature-card {
+    min-width: 280px;
+    padding: 2rem;
+    text-align: center;
+    flex: 1;
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Text Sharpness Fixes */
+.text-clear {
+    color: #1a1a1a !important; /* Deep charcoal for better contrast */
+    text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+.icon-box {
+    width: 60px;
+    height: 60px;
+    background: #212529;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 576px) {
+    .glass-card {
+        padding: 1.5rem;
+    }
+}
+</style>
+
+<section class="about-hero">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-8">
+                <div class="glass-card text-center">
+                    <h2 class="fw-bold mb-4 text-dark display-5">About Nimbalkar Canteen</h2>
+
+                    <p class="text-clear fs-5 fw-medium">
+                        Nimbalkar Canteen is a college-friendly food outlet offering
+                        delicious and affordable meals for students and faculty.
+                        We focus on fresh ingredients, hygienic preparation,
+                        and fast service to meet the daily needs of campus life.
+                    </p>
+
+                    <p class="text-clear fs-5 fw-medium">
+                        Our menu includes local favorites, snacks, and beverages,
+                        designed to provide a satisfying and convenient dining
+                        experience.
+                    </p>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </section>
+
+<section class="container-fluid py-5" style="background-color: #f8f9fa;">
+    <div class="container">
+        <div class="row justify-content-center text-center">
+            <div class="col-12 mb-5">
+                <h2 class="fw-bold text-dark display-6">Why Choose Us?</h2>
+                <div class="mx-auto bg-warning mb-3" style="height: 4px; width: 60px;"></div>
+                <p class="text-muted fs-5">Quality, speed, and affordability in every bite.</p>
+            </div>
+
+            <div class="col-md-12">
+                <div class="d-flex flex-wrap justify-content-center gap-4">
+
+                    <div class="feature-card glass-card">
+                        <div class="icon-box">
+                            <i class="bi bi-shield-check" style="font-size: 1.8rem; color: #FFC107;"></i>
+                        </div>
+                        <h5 class="fw-bold text-dark">Hygiene First</h5>
+                        <p class="text-clear mb-0">
+                            Our kitchen follows strict safety standards to ensure every bite is safe and clean.
+                        </p>
+                    </div>
+
+                    <div class="feature-card glass-card">
+                        <div class="icon-box">
+                            <i class="bi bi-lightning-fill" style="font-size: 1.8rem; color: #FFC107;"></i>
+                        </div>
+                        <h5 class="fw-bold text-dark">Fast Service</h5>
+                        <p class="text-clear mb-0">
+                            We know your breaks are short. Our system is designed to get you fed in record time.
+                        </p>
+                    </div>
+
+                    <div class="feature-card glass-card">
+                        <div class="icon-box">
+                            <i class="bi bi-wallet2" style="font-size: 1.8rem; color: #FFC107;"></i>
+                        </div>
+                        <h5 class="fw-bold text-dark">Student Pricing</h5>
+                        <p class="text-clear mb-0">
+                            High quality food doesn't have to be expensive. We keep our prices pocket-friendly.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
 {% endblock %}
