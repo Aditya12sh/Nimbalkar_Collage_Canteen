@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Cart | Nimbalkar Canteen{% endblock %}
+
+{% block content %}
+<div class="container mb-5">
+    <h2 class="text-center mb-4 fw-bold text-uppercase text-dark">Your Shopping Cart</h2>
+    <div class="row g-4">
+        <div class="col-lg-8">
+            <div class="cart-container shadow">
+                <div class="table-responsive">
+                    <table class="table align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Item</th>
+                                <th>Price</th>
+                                <th>Qty</th>
+                                <th>Total</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="cart-table-body"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="cart-container shadow">
+                <h5 class="fw-bold mb-3">Order Summary</h5>
+                <div class="d-flex justify-content-between mb-2">
+                    <span>Subtotal:</span>
+                    <span id="subtotal-val">₹0</span>
+                </div>
+                <div class="d-flex justify-content-between h5 fw-bold text-primary mb-4">
+                    <span>Total:</span>
+                    <span id="total-val">₹0</span>
+                </div>
+                <button class="btn btn-warning w-100 fw-bold py-2 rounded-pill">CHECKOUT</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function displayCart() {
+    let cart = JSON.parse(localStorage.getItem('canteenCart')) || [];
+    let tableBody = document.getElementById('cart-table-body');
+    let runningTotal = 0;
+    tableBody.innerHTML = "";
+    cart.forEach((item, index) => {
+        let itemTotal = item.price * item.qty;
+        runningTotal += itemTotal;
+        tableBody.innerHTML += `<tr>
+            <td class="fw-bold">${item.name}</td>
+            <td>₹${item.price}</td>
+            <td>${item.qty}</td>
+            <td class="fw-bold">₹${itemTotal}</td>
+            <td>
+                <button onclick="deleteItem(${index})" class="btn btn-sm btn-outline-danger border-0">
+                    <i class="bi bi-trash"></i>
+                </button>
+            </td>
+        </tr>`;
+    });
+    document.getElementById('subtotal-val').innerText = "₹" + runningTotal;
+    document.getElementById('total-val').innerText = "₹" + runningTotal;
+    if(cart.length === 0){
+        tableBody.innerHTML = '<tr><td colspan="5" class="text-center">Your cart is empty!</td></tr>';
+    }
+}
+function deleteItem(index){
+    let cart = JSON.parse(localStorage.getItem('canteenCart')) || [];
+    cart.splice(index,1);
+    localStorage.setItem('canteenCart', JSON.stringify(cart));
+    displayCart();
+}
+window.onload = displayCart;
+</script>
+{% endblock %}

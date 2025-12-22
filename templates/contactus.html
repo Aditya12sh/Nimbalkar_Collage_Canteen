@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Contact Us | Nimbalkar Canteen{% endblock %}
+
+{% block content %}
+<div class="container section-padding">
+  <h2 class="text-center fw-bold mb-5">Get In <span class="text-warning">Touch</span></h2>
+  <div class="row g-4 justify-content-center">
+    <div class="col-md-5">
+      <div class="p-4 bg-white text-dark shadow rounded-3">
+    <h4 class="fw-bold mb-4">Contact Info</h4>
+<p>
+      <i class="bi bi-geo-alt-fill text-warning"></i>
+      Zeal Campus, Narhe, Pune
+ <p>
+      <i class="bi bi-telephone-fill text-warning"></i>
+      +91 98765 43210
+    </p>        
+<p>
+      <i class="bi bi-envelope-fill text-warning"></i>
+      support@nimbalkarcanteen.com
+    </p>      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="p-4 bg-white shadow rounded-3">
+        <form>
+          <div class="mb-3">
+<label class="form-label fw-bold text-dark">Name</label>
+            <input type="text" class="form-control">
+          </div>
+          <div class="mb-3">
+<label class="form-label fw-bold text-dark">Email</label>
+            <input type="email" class="form-control">
+          </div>
+          <div class="mb-3">
+<label class="form-label fw-bold text-dark">Message</label>
+            <textarea class="form-control" rows="4"></textarea>
+          </div>
+          <button class="btn btn-warning w-100 fw-bold">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
