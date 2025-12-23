@@ -154,16 +154,16 @@ background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
                         <a class="nav-link" href="{% url 'menu' %}">Menu</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'cart' %}">cart</a>
+                        <a class="nav-link" href="{% url 'cart' %}">Cart</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'about' %}">about us</a>
+                        <a class="nav-link" href="{% url 'about' %}">About Us</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'contactus' %}">Contact</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'login' %}">login</a>
+                        <a class="nav-link" href="{% url 'login' %}">Login</a>
                     </li>
                     <li class="nav-item">
                         <a class="btn btn-warning btn-sm ms-2" href="{% url 'menu' %}">Order Now</a>
@@ -184,56 +184,7 @@ background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
         </div>
     </section>
 
-   <section id="menu" class="section-padding bg-light">
-    <div class="container">
-        <h2 class="text-center mb-5 fw-bold display-4 text-dark">🍽 Popular Items (Menu)</h2>
-
-        <div class="row g-4 justify-content-center">
-
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                <div class="card rounded-3 border-0 h-100 card-shadow-hover">
-                    <div class="card-img-container">
-                        <img src="{% static 'images/dosaa.jpg' %}" class="card-img-top rounded-top-3" alt="Hot Masala Dosa">
-                    </div>
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title  fw-bold">Masala Dosa</h5>
-                        <p class="card-text text-muted mb-3 small">Crispy rice crepe with a spiced potato filling.</p>
-                        <span class="fw-bold text-success mt-auto mb-2">₹50.00</span>
-                        <button onclick="addToCart('Masala Dosa', 50)" class="btn btn-custom-primary btn-sm">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="card rounded-3 border-0 h-100 card-shadow-hover">
-          <div class="card-img-container">
-            <img src="{% static 'images/chai.webp' %}" class="card-img-top rounded-top-3" alt="Masala Chai">
-          </div>
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title fw-bold">Masala Chai</h5>
-            <p class="card-text text-muted mb-3 small">Hot spiced tea, a perfect morning or evening energizer.</p>
-            <span class="fw-bold text-success mt-auto mb-2">₹20.00</span>
-            <button onclick="addToCart('Masala Chai',20)" class="btn btn-custom-primary btn-sm">Add to Cart</button>
-          </div>
-        </div>
-      </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                <div class="card rounded-3 border-0 h-100 card-shadow-hover">
-                    <div class="card-img-container">
-                        <img src="{% static 'images/cold coffee.png' %}" class="card-img-top rounded-top-3" alt="Iced Cold Coffee">
-                    </div>
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title  fw-bold">Cold Coffee</h5>
-                        <p class="card-text text-muted mb-3 small">Rich, creamy, and perfectly chilled coffee blend.</p>
-                        <span class="fw-bold text-success mt-auto mb-2">₹45.00</span>
-                        <button onclick="addToCart('Cold Coffee', 45)" class="btn btn-custom-primary btn-sm">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
+   
 
     <section id="features" class="section-padding">
         <div class="container">

@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %}Signup | Nimbalkar Canteen{% endblock %}
+
+{% block content %}
+<div class="container section-padding">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+
+      <div class="p-4 bg-white shadow rounded-3">
+
+        <h3 class="text-center mb-4 fw-bold">Create Account</h3>
+
+        <form method="POST" action="{% url 'signup' %}">
+          {% csrf_token %}
+
+          <div class="mb-3">
+            <label class="form-label fw-bold">Full Name</label>
+            <input type="text" name="full_name" class="form-control" required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label fw-bold">Email</label>
+            <input type="email" name="email" class="form-control" required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label fw-bold">Password</label>
+            <input type="password" name="password1" class="form-control" required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label fw-bold">Confirm Password</label>
+            <input type="password" name="password2" class="form-control" required>
+          </div>
+
+          <button class="btn btn-warning w-100 fw-bold">
+            Create Account
+          </button>
+        </form>
+
+        <p class="text-center mt-3">
+          Already have an account?
+          <a href="{% url 'login' %}" class="fw-bold">Login</a>
+        </p>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+{% endblock %}

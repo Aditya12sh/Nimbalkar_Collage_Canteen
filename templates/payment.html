@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}Payment | Nimbalkar Canteen{% endblock %}
+
+{% block content %}
+<div class="container section-padding">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+
+      <div class="bg-white p-4 rounded shadow text-center">
+        <h3 class="mb-3">Payment</h3>
+
+        <p class="fw-bold fs-5">
+          Total Amount: ₹{{ total }}
+        </p>
+
+        <form method="post" action="{% url 'place_order' %}">
+          {% csrf_token %}
+          <button class="btn btn-success w-100 fw-bold">
+            PAY & PLACE ORDER
+          </button>
+        </form>
+
+        <p class="text-muted mt-3 small">
+          (Demo payment – no real money deducted)
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+{% endblock %}

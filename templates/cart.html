@@ -1,12 +1,13 @@
-
 {% extends 'base.html' %}
-{% load static %}
 {% block title %}Cart | Nimbalkar Canteen{% endblock %}
 
 {% block content %}
 <div class="container section-padding">
   <h2 class="text-center mb-4 fw-bold text-white">Your Shopping Cart</h2>
+
   <div class="table-responsive bg-white p-4 rounded-3 shadow">
+
+    {% if items %}
     <table class="table align-middle">
       <thead class="table-light">
         <tr>
@@ -14,45 +15,43 @@
           <th>Price</th>
           <th>Qty</th>
           <th>Total</th>
-          <th></th>
         </tr>
       </thead>
-      <tbody id="cart-table-body"></tbody>
+      <tbody>
+        {% for item in items %}
+        <tr>
+          <td>{{ item.name }}</td>
+          <td>₹{{ item.price }}</td>
+          <td>{{ item.quantity }}</td>
+          <td>₹{{ item.subtotal }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
     </table>
-    <div class="d-flex justify-content-between h5 fw-bold text-primary mb-2">
+
+    <div class="d-flex justify-content-between h5 fw-bold text-primary mb-3">
       <span>Total:</span>
-      <span id="total-val">₹0</span>
+      <span>₹{{ total }}</span>
     </div>
-    <button class="btn btn-warning w-100 fw-bold">CHECKOUT</button>
+
+    <!-- ✅ REAL CHECKOUT (NO JS, LOGIN REQUIRED HERE) -->
+    <form method="get" action="{% url 'payment' %}">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-warning w-100 fw-bold">
+        CHECKOUT
+      </button>
+    </form>
+
+    {% if not user.is_authenticated %}
+    <p class="text-center text-danger mt-2">
+      Login is required only at checkout
+    </p>
+    {% endif %}
+
+    {% else %}
+    <p class="text-center">Your cart is empty.</p>
+    {% endif %}
+
   </div>
 </div>
-{% endblock %}
-
-{% block scripts %}
-<script>
-function displayCart() {
-    let cart = JSON.parse(localStorage.getItem('canteenCart')) || [];
-    let tbody = document.getElementById('cart-table-body');
-    let total = 0;
-    tbody.innerHTML = '';
-    if(cart.length===0){ tbody.innerHTML='<tr><td colspan="5" class="text-center">Your cart is empty!</td></tr>'; return; }
-    cart.forEach((item,i)=>{
-        let itemTotal = item.price*item.qty; total+=itemTotal;
-        tbody.innerHTML+=`<tr>
-        <td>${item.name}</td>
-        <td>₹${item.price}</td>
-        <td>${item.qty}</td>
-        <td>₹${itemTotal}</td>
-        <td><button onclick="deleteItem(${i})" class="btn btn-sm btn-outline-danger border-0"><i class="bi bi-trash"></i></button></td>
-        </tr>`;
-    });
-    document.getElementById('total-val').innerText='₹'+total;
-}
-function deleteItem(i){
-    let cart = JSON.parse(localStorage.getItem('canteenCart'))||[];
-    cart.splice(i,1); localStorage.setItem('canteenCart',JSON.stringify(cart));
-    displayCart();
-}
-window.onload=displayCart;
-</script>
 {% endblock %}

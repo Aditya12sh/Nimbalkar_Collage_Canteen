@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %}My Orders | Nimbalkar Canteen{% endblock %}
+
+{% block content %}
+<div class="container section-padding">
+  <h2 class="text-center mb-4 fw-bold text-white">My Orders</h2>
+
+  {% if orders %}
+    {% for order in orders %}
+      <div class="bg-white rounded shadow p-4 mb-4">
+
+        <div class="d-flex justify-content-between mb-2">
+          <h5>Order #{{ order.id }}</h5>
+          <span class="badge 
+            {% if order.status == 'Pending' %}bg-secondary
+            {% elif order.status == 'Paid' %}bg-primary
+            {% elif order.status == 'Preparing' %}bg-warning text-dark
+            {% elif order.status == 'Ready' %}bg-info
+            {% elif order.status == 'Completed' %}bg-success
+            {% elif order.status == 'Cancelled' %}bg-danger
+            {% endif %}
+          ">
+            {{ order.status }}
+          </span>
+        </div>
+
+        <small class="text-muted">
+          Ordered on {{ order.created_at|date:"d M Y, h:i A" }}
+        </small>
+
+        <hr>
+
+        <ul class="list-group">
+          {% for item in order.orderitem_set.all %}
+            <li class="list-group-item d-flex justify-content-between">
+              <span>{{ item.item.name }} × {{ item.quantity }}</span>
+              <span>₹{{ item.item.price|floatformat:2 }}</span>
+            </li>
+          {% endfor %}
+        </ul>
+
+      </div>
+    {% endfor %}
+  {% else %}
+    <p class="text-center text-white">No orders yet.</p>
+  {% endif %}
+</div>
+{% endblock %}
