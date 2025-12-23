@@ -6,23 +6,31 @@
   <div class="row justify-content-center">
     <div class="col-md-6">
 
-      <div class="bg-white p-4 rounded shadow text-center">
-        <h3 class="mb-3">Payment</h3>
+      <div class="bg-white p-4 rounded-3 shadow text-center">
 
-        <p class="fw-bold fs-5">
-          Total Amount: ₹{{ total }}
+        <h3 class="fw-bold mb-3">Payment</h3>
+
+        <p class="fs-5">
+          Total Amount:
+          <strong class="text-success">₹{{ total }}</strong>
         </p>
 
-        <form method="post" action="{% url 'place_order' %}">
+        <p class="text-muted mb-4">
+          (Demo payment – no real gateway connected)
+        </p>
+
+        <!-- PAY NOW -->
+        <form method="post" action="{% url 'payment_success' %}">
           {% csrf_token %}
-          <button class="btn btn-success w-100 fw-bold">
-            PAY & PLACE ORDER
+          <button type="submit" class="btn btn-success w-100 fw-bold">
+            Pay Now
           </button>
         </form>
 
-        <p class="text-muted mt-3 small">
-          (Demo payment – no real money deducted)
+        <p class="small text-muted mt-3">
+          After payment your order will be placed.
         </p>
+
       </div>
 
     </div>

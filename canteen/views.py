@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import messages
-from django.shortcuts import render, redirect
 from .models import FoodItem, Order, OrderItem
 
 
@@ -130,30 +130,14 @@ def cart(request):
 # ================= CHECKOUT / ORDER =================
 @login_required
 def place_order(request):
-    if request.method != "POST":
-        return redirect('menu')
-
     cart = request.session.get('cart', {})
+
     if not cart:
-        messages.error(request, "Cart empty")
+        messages.error(request, "Your cart is empty")
         return redirect('menu')
 
-    order = Order.objects.create(
-        user=request.user,
-        status='Paid'
-    )
-
-    for item_id, item in cart.items():
-        food = FoodItem.objects.get(id=item_id)
-        OrderItem.objects.create(
-            order=order,
-            item=food,
-            quantity=item['quantity']
-        )
-
-    request.session['cart'] = {}
-    messages.success(request, "Payment successful. Order placed.")
-    return redirect('my_orders')
+    # DO NOT create order here
+    return redirect('payment')
 
 @login_required
 def my_orders(request):
@@ -170,19 +154,44 @@ def about(request):
 def contactus(request):
     return render(request, "contactus.html")
 
-
 @login_required
 def payment(request):
     cart = request.session.get('cart', {})
+
     if not cart:
-        messages.error(request, "Cart empty")
+        messages.error(request, "Your cart is empty")
         return redirect('menu')
 
-    total = sum(
-        item['price'] * item['quantity']
-        for item in cart.values()
-    )
+    total = 0
+    for item in cart.values():
+        total += item['price'] * item['quantity']
 
     return render(request, 'payment.html', {
         'total': total
     })
+
+
+@login_required
+def payment_success(request):
+    cart = request.session.get('cart', {})
+
+    if not cart:
+        return redirect('menu')
+
+    order = Order.objects.create(
+        user=request.user,
+        status="Pending Payment Approval"
+    )
+
+    for item_id, item in cart.items():
+        food = FoodItem.objects.get(id=item_id)
+        OrderItem.objects.create(
+            order=order,
+            item=food,
+            quantity=item['quantity']
+        )
+
+    request.session['cart'] = {}
+
+    messages.success(request, "Payment successful. Order placed!")
+    return redirect('my_orders')
