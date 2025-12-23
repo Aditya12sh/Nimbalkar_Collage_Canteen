@@ -1,5 +1,12 @@
 from django.contrib import admin
 from .models import FoodItem, Order, OrderItem
+from .models import Feedback
+from .models import Payment
+
+
+admin.site.register(Payment)
+
+admin.site.register(Feedback)
 
 
 @admin.register(FoodItem)
